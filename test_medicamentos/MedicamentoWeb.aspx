@@ -54,13 +54,12 @@
                 </tr>
                 <tr>
                     <td class="auto-style7">Fecha Recibo</td>
-                    <td class="auto-style8">YY<asp:TextBox ID="Year" runat="server" Width="17px"></asp:TextBox>
+                    <td class="auto-style8">YY<asp:TextBox ID="Year" runat="server" Width="58px"></asp:TextBox>
                         --MM<asp:TextBox ID="Mount" runat="server" Width="16px"></asp:TextBox>
                         --DD<asp:TextBox ID="Day" runat="server" Width="16px"></asp:TextBox>
                     </td>
                     <td class="auto-style9">
-                        <asp:Label ID="mensajeDebug" runat="server"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">Valor</td>

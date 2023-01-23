@@ -25,7 +25,7 @@ namespace AccesoDato
         }
         private void Configurar()
         {
-            cadConex = "Data Source = DESKTOP-P00I262; Initial Catalog = medicamentos; Integrated Security = True";
+            cadConex = "Data Source = DESKTOP-GKSTLIB; Initial Catalog = medicamentos; Integrated Security = True";
             BdCodeEerror = 0;
             BdMsgError = "";
         }
