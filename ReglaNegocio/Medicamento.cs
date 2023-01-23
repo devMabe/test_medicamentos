@@ -65,7 +65,7 @@ namespace ReglaNegocio
             bool actualizo = false;
             BaseDeDato bd = new BaseDeDato();
             bd.Conectar();
-            string vSql = "UPDATE medicamento SET cantidad = @cantidad WHERE @id = id ";
+            string vSql = "UPDATE medicamento SET cantidad = @cantidad  WHERE @id = id ";
             bd.CrearComando(vSql);
             bd.AsignarParametro("@id", SqlDbType.Int, vId);
             bd.AsignarParametro("@cantidad", SqlDbType.Int, nuevaCantidad);

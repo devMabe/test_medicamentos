@@ -27,13 +27,15 @@ namespace test_medicamentos
 
             {
                 int nuevaCantidad = (CantidadMayor - vCantidad);
+                
                 if (medi.UpdateStock(vId,nuevaCantidad))
                 {
-                    refresh();
+                    CantidadMayor = 0;
                     txtMensaje.Text = "Despacho Exitoso";
-                    UpdateDataTable();
+                    txtCantidad.Text = "";
                     txtCantidad.Text = nuevaCantidad.ToString();
-                    
+                    cantidadTem.Text = "";
+                    UpdateDataTable();
                 }
                 else
                 {
