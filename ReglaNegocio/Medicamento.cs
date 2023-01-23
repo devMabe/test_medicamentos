@@ -40,13 +40,32 @@ namespace ReglaNegocio
             return inserto;
         }
 
+        public bool EditMedicamento(int pId, string pNombre, double pValor, int pCantidad)
+        {
+            bool actualizo = false;
+            BaseDeDato bd = new BaseDeDato();
+            bd.Conectar();
+            string vSql = "UPDATE medicamento SET  nombre_medicamento = @nombre, valor = @valor, cantidad = @cantidad WHERE @id = id ";
+            bd.CrearComando(vSql);
+            bd.AsignarParametro("@id", SqlDbType.Int, pId);
+            bd.AsignarParametro("@nombre", SqlDbType.VarChar, pNombre);
+            bd.AsignarParametro("@valor", SqlDbType.Decimal,pValor);
+            bd.AsignarParametro("@cantidad", SqlDbType.Int,pCantidad);
+
+            if (bd.EjecutarComando() > 0)
+            {
+                actualizo = true;
+            }
+            bd.Desconectar();
+            return actualizo;
+        }
 
         public bool UpdateStock(int vId, int nuevaCantidad)
         {
             bool actualizo = false;
             BaseDeDato bd = new BaseDeDato();
             bd.Conectar();
-            string vSql = "UPDATE medicamento SET cantidad = @cantidad  WHERE @id = id ";
+            string vSql = "UPDATE medicamento SET cantidad = @cantidad WHERE @id = id ";
             bd.CrearComando(vSql);
             bd.AsignarParametro("@id", SqlDbType.Int, vId);
             bd.AsignarParametro("@cantidad", SqlDbType.Int, nuevaCantidad);
@@ -70,6 +89,18 @@ namespace ReglaNegocio
             Console.WriteLine(dt.ToString());
             return dt;
         }
+
+        public DataTable ListarAll()
+        {
+            BaseDeDato bd = new BaseDeDato();
+            bd.Conectar();
+            string vSql = "select * from medicamento";
+            bd.CrearComando(vSql);
+            DataTable dt = bd.EjecutarConsulta();
+            Console.WriteLine(dt.ToString());
+            return dt;
+        }
+
 
     }
 }

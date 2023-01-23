@@ -38,6 +38,16 @@
         .auto-style9 {
             height: 52px;
         }
+        .auto-style10 {
+            width: 100%;
+            height: 292px;
+        }
+        .auto-style11 {
+            width: 180px;
+        }
+        .auto-style12 {
+            width: 341px;
+        }
     </style>
 </head>
 <body>
@@ -79,6 +89,7 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style2">
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar" Width="129px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -92,6 +103,33 @@
             </table>
 
         </div>
+        <table class="auto-style10">
+            <tr>
+                <td class="auto-style11">&nbsp;</td>
+                <td class="auto-style12">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style11">
+                    <asp:GridView ID="grilla" runat="server" Height="151px" OnSelectedIndexChanged="grilla_SelectedIndexChanged" Width="312px">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
+                        </Columns>
+                    </asp:GridView>
+                </td>
+                <td class="auto-style12">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style11">ID:&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="id" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnEditar" runat="server" OnClick="btnEditar_Click" Text="Editar" Width="129px" />
+                </td>
+                <td class="auto-style12">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
