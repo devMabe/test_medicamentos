@@ -40,14 +40,19 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:GridView ID="grilla" runat="server" Height="230px" Width="372px">
+                        <asp:GridView ID="grilla" runat="server" Height="230px" Width="372px" OnSelectedIndexChanged="grilla_SelectedIndexChanged">
+                            <Columns>
+                                <asp:CommandField ShowSelectButton="True" />
+                            </Columns>
                         </asp:GridView>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:TextBox ID="cantidadTem" runat="server" Visible="False" Width="79px"></asp:TextBox>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

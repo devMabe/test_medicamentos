@@ -41,16 +41,18 @@ namespace ReglaNegocio
         }
 
 
-        public bool UpdateStock(int vId)
+        public bool UpdateStock(int vId, int nuevaCantidad)
         {
             bool actualizo = false;
             BaseDeDato bd = new BaseDeDato();
             bd.Conectar();
-            string vSql = "UPDATE medicamento SET cantidad = cantidad - 5 WHERE @id = id ";
+            string vSql = "UPDATE medicamento SET cantidad = @cantidad  WHERE @id = id ";
             bd.CrearComando(vSql);
             bd.AsignarParametro("@id", SqlDbType.Int, vId);
+            bd.AsignarParametro("@cantidad", SqlDbType.Int, nuevaCantidad);
+
             /*bd.AsignarParametro("@fecha", SqlDbType.DateTime,vCantidad);*/
-            if(bd.EjecutarComando() > 0)
+            if (bd.EjecutarComando() > 0)
             {
                 actualizo = true;
             }

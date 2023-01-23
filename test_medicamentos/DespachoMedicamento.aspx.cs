@@ -20,16 +20,30 @@ namespace test_medicamentos
         {
             Medicamento medi = new Medicamento();
             int vId = int.Parse(txtId.Text);
-           /* int vCantidad = int.Parse(txtCantidad.Text);*/
+            int CantidadMayor = int.Parse(cantidadTem.Text);
+            int vCantidad = int.Parse(txtCantidad.Text);
+            int nuevaCantidad = vCantidad - CantidadMayor;
+            if((vCantidad) <= CantidadMayor && (vCantidad > 0))
 
-            if(medi.UpdateStock(vId)){
-                txtMensaje.Text = "Despacho Exitoso";
-                UpdateDataTable();
+            {
+                if (medi.UpdateStock(vId,nuevaCantidad))
+                {
+                    refresh();
+                    txtMensaje.Text = "Despacho Exitoso";
+                    UpdateDataTable();
+                    
+                }
+                else
+                {
+                    txtMensaje.Text = "ERROR, No se pudo despachar el medicamento";
+                }
             }
             else
             {
-                txtMensaje.Text = "ERROR, No se pudo despachar el medicamento";
+                txtMensaje.Text = "ERROR, No se encuentra disponible la cantidad solicitada";
             }
+
+            
         }
 
         public void UpdateDataTable()
@@ -39,6 +53,21 @@ namespace test_medicamentos
             grilla.DataSource = dt;
             
             grilla.DataBind();  
+        }
+
+        protected void grilla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = grilla.SelectedRow;
+            txtCantidad.Text = row.Cells[4].Text;
+            cantidadTem.Text = row.Cells[4].Text;
+            txtId.Text= row.Cells[1].Text;
+        }
+
+        private void refresh()
+        {
+            GridViewRow row = grilla.SelectedRow;
+            txtCantidad.Text = row.Cells[4].Text;
+            txtId.Text = row.Cells[1].Text;
         }
     }
 }

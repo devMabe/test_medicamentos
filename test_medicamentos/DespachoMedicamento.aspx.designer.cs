@@ -33,6 +33,15 @@ namespace test_medicamentos
         protected global::System.Web.UI.WebControls.GridView grilla;
 
         /// <summary>
+        /// Control cantidadTem.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cantidadTem;
+
+        /// <summary>
         /// Control txtId.
         /// </summary>
         /// <remarks>
