@@ -40,5 +40,34 @@ namespace ReglaNegocio
             return inserto;
         }
 
+
+        public bool UpdateStock(int vId)
+        {
+            bool actualizo = false;
+            BaseDeDato bd = new BaseDeDato();
+            bd.Conectar();
+            string vSql = "UPDATE medicamento SET cantidad = cantidad - 5 WHERE @id = id ";
+            bd.CrearComando(vSql);
+            bd.AsignarParametro("@id", SqlDbType.Int, vId);
+            /*bd.AsignarParametro("@fecha", SqlDbType.DateTime,vCantidad);*/
+            if(bd.EjecutarComando() > 0)
+            {
+                actualizo = true;
+            }
+            bd.Desconectar();
+            return actualizo;
+
+        }
+        public DataTable Listar()
+        {
+            BaseDeDato bd = new BaseDeDato();
+            bd.Conectar();
+            string vSql = "select id, nombre_medicamento, valor, cantidad from medicamento";
+            bd.CrearComando(vSql);
+            DataTable dt = bd.EjecutarConsulta();
+            Console.WriteLine(dt.ToString());
+            return dt;
+        }
+
     }
 }
