@@ -53,9 +53,25 @@
     <title></title>
 </head>
 <body>
-    <form id="form" class="form-control" runat="server">
-        <div>
+     <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="MenuOpciones.aspx" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg>
+            <span class="fs-4">Gestor de Medicamentos</span>
+        </a>
 
+       <ul class="nav nav-pills">
+         <li class="nav-item"><a href="MenuOpciones.aspx" class="nav-link" aria-current="page">Inicio</a></li>
+        <li class="nav-item"><a href="MedicamentoWeb.aspx" class="nav-link active">Crear Medicamentos</a></li>
+        <li class="nav-item"><a class="nav-link" href="BodegaMedicamento.aspx">Bodega de Medicamentos</a></li>
+        <li class="nav-item"><a class="nav-link" href="DespachoMedicamento.aspx">Despacho de Medicamentos</a></li>
+      </ul>
+    </header>
+  </div>
+    <form id="form" class="form-control d-flex justify-content-center align-items-center" runat="server" >
+        <div>
             <table class="auto-style3" >
                 <tr>
                     <td class="auto-style1">Nombre</td>
@@ -133,7 +149,7 @@
             </tr>
             <tr>
                 <td class="auto-style11">&nbsp;
-                    <a href="About.aspx">Inicio</a>
+                    
                 </td>
                 <td class="auto-style12">&nbsp;</td>
                 <td>&nbsp;</td>
